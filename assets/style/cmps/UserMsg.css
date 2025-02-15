@@ -1,0 +1,27 @@
+.user-msg {
+    display: flex;
+    gap: 5px;
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+
+    right: 0.5em;
+    bottom: 0.5em;
+    padding: 10px;
+    font-size: 1em;
+
+    box-shadow: 1px 3px 11px 4px rgb(122 122 122 / 91%);
+    border-radius: 20px;
+    background-color: #9dc7a7;
+    color: #094217;
+}
+
+.success {
+    background-color: #9dc7a7;
+    color: #094217;
+}
+
+.error {
+    background-color: #caa3a6;
+    color: #61131b;
+}

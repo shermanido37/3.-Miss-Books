@@ -1,0 +1,14 @@
+.home p {
+    margin-block-start: 10px;
+}
+
+.add-book-link {
+    display: block;
+    /* text-align: center; */
+    width: fit-content;
+    margin: 20px auto;
+}
+
+.add-book {
+    cursor: pointer;
+}

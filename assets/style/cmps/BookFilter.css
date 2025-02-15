@@ -1,0 +1,8 @@
+.books-filter {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background: #a7ffd6;
+    border-radius: 5px;
+}

@@ -1,0 +1,33 @@
+.books-list ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    justify-content: center;
+    gap: 10px;
+}
+
+.books-list ul li {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: start;
+
+    border-radius: 15px;
+    gap: 5px;
+    padding: 10px;
+    background: linear-gradient(360deg, #4070c4, #a7ffd6);
+}
+
+.close {
+    position: absolute;
+    border-radius: 50%;
+    top: -7px;
+    right: -7px;
+    background: rgb(207, 158, 158);
+}
+
+.books-list li:hover img {
+    animation: bounceIn;
+    animation-duration: 2s;
+}
