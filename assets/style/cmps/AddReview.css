@@ -9,6 +9,10 @@
     padding-top: 50px;
 }
 
+.review-add.hidden{
+    display: none
+}
+
 .review-add .review-modal {
     position: relative;
     background-color: #fefefe;
@@ -17,6 +21,17 @@
     text-align: center;
     min-width: 400px;
     padding: 20px;
+}
+
+.review-add .review-modal .review-form div{
+    margin: 5px auto;
+    display: flex;
+    justify-content: space-between;
+    width: 75%;
+}
+
+.review-add .review-modal .review-form input{
+    width: 61%;
 }
 
 .review-modal h1 {
@@ -35,7 +50,7 @@
 
 .review-form input,
 .review-form button {
-    margin: 5px;
+    margin: 5px 0px;
 }
 
 .review-add .btn-toggle-modal {

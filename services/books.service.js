@@ -44,6 +44,7 @@ function get(bookId) {
 }
 
 function saveReview(bookId, reviewToSave) {
+    reviewToSave = {...reviewToSave, id: utilService.makeId(5)};
     return get(bookId).then(book => {
         const review = _createReview(reviewToSave)
         book.reviews.unshift(review)
@@ -53,7 +54,7 @@ function saveReview(bookId, reviewToSave) {
 
 function getEmptyReview() {
     return {
-        fullName: 'new name',
+        fullName: '',
         rating: 0,
         date: new Date().toISOString().slice(0, 10),
         txt: '',
