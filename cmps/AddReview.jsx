@@ -28,8 +28,9 @@ export function AddReview(props = {bookID, onExit}){
         
         /**save review here */
         booksService.saveReview(props.bookID, review)
-
-        props.onExit(review)
+        .then(savedReview => {
+            props.onExit(savedReview)
+        })
     }
 
     function onClickX(){

@@ -41,21 +41,26 @@ export function BookDetails() {
         return ''
     }
 
-    function onClickAddReview(){
+    function onClickAddReview() {
         setIsAddReview(true)
     }
 
-    function onAddReviewFinish(review){
-        if(review){
+    function onAddReviewFinish(review) {
+        if (review) {
             book.reviews.unshift(review)
             showSuccessMsg("Review has been succesfully added!")
         }
         setIsAddReview(false)
     }
 
-    function onClickDeleteReview(reviewID){
+    function onClickDeleteReview(reviewID) {
         booksService.removeReview(book.id, reviewID)
             .then(() => {
+                setBook(prevBook => {
+                    return {
+                        ...prevBook, reviews: prevBook.reviews.filter(review => review.id !== reviewID)
+                    }
+                })
                 showSuccessMsg("Review has been successfully removed!")
             })
             .catch(err => {
@@ -107,19 +112,19 @@ export function BookDetails() {
             </p>}
             {book.description && <LongTxt txt={book.description} />}
             {book.listPrice.isOnSale && <img className="on-sale-icon" src="/assets/booksImages/onSale.png.png" alt="" />}
-            
+
             <button onClick={onClickAddReview}>Add Review</button>
 
-            {book && isAddReview && <AddReview bookID={book.id} onExit={onAddReviewFinish}/>}
+            {book && isAddReview && <AddReview bookID={book.id} onExit={onAddReviewFinish} />}
 
             <section className="review-container">
                 <h2>Reviews</h2>
                 {!book.id || book.reviews.length === 0 ? <p>Be the first to write a review for this book.</p> : <div className="review-list">
-                    {book.reviews.map(review => 
+                    {book.reviews.map(review =>
                         <article className="review-details" key={review.id}>
                             <h5>{review.fullName}</h5>
                             <p>Rating: {review.rating}/5, Submitted on {review.date}</p>
-                            <LongTxt txt={review.txt}/>
+                            <LongTxt txt={review.txt} />
                             <button className="fa-regular fa-trash-can close btn-remove-review" onClick={() => onClickDeleteReview(review.id)}> </button>
                         </article>
                     )}
@@ -130,7 +135,7 @@ export function BookDetails() {
                 <Link to='/book'>X</Link>
             </button>
 
-            
+
         </article>
     )
 }
